@@ -1,0 +1,114 @@
+:root {
+    --PrimaryColour: hsl(199, 100%, 33%);
+    --SecondaryColour: hsl(187, 85%, 43%);
+    --gradientColour: linear-gradient(to right, hsl(187, 85%, 43%), hsl(199, 100%, 33%));
+    --whiteColour: hsl(0, 0%, 100%);
+    --blackColour: hsl(201, 33%, 16%);
+    --textColour: hsl(240, 4%, 36%);
+    --whiteColourDeam: hsl(0, 0%, 93%);
+    --greyText: rgb(190, 190, 190);
+    --inputColour: rgb(239, 239, 239);
+    --bpdyColour: rgb(240, 240, 246);
+    --cardBG: rgb(225, 225, 235);
+}
+
+.main{
+    width:100%;
+
+    .secTitle{
+        .title{
+            position: relative;
+            width: max-content;
+            color: var(--textColour);
+            margin: 1rem 0;
+            z-index: 2;
+
+            &::after{
+                position:relative;
+                content:'';
+                background:vr(--SecondaryColour) ;
+                height: 5px;
+                width:120px;
+                right: 0;
+                bottom: 5px;
+                z-index:-1;
+            }
+        }
+    }
+
+    .seeContent{
+        justify-content: center;
+        gap: 1.5rem;
+
+        .singleDestination{
+            height: 100%;
+            display: grid;
+            row-gap: 10px;
+            border-radius: 10px;
+            align-items: center;
+            background: var(--cardBG);
+            box-shadow: 0 2px 4px rgba(140 ,140,141,0.549);
+            overflow: hidden;
+            &:hover{
+                background: var(--cardHover);
+                box-shadow:1,4px 4px rgba(85,85,114,0.549) ;
+                transition: .3 ease;
+
+            }
+
+            .imageDiv{
+                height: 180px;
+                width: 100%;
+                overflow: hidden;
+
+                .iimg{
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                    transition: 2s ease;
+                }
+
+                &:hover{
+                     img{
+                        transition: scale(1.1);
+                     }
+                }
+            }
+
+            .cardInfo{
+                padding: 1rem;
+            }
+
+            
+
+        }
+    }
+}
+
+@media screen and (min-width: 500px){
+    .title{
+        font-size: 1.5rem;
+        &::after{
+            width:155px !important;
+        }
+    }
+
+    .seeContent{
+        grid-template-columns: repeat(2,1fr);
+
+        .singleDestination{
+            height: auto;
+        }
+    }
+}
+
+@media screen and (min-width: 840px) {
+    .seeContent{
+        grid-template-columns: repeat(3,1fr);
+
+        .singleDestination{
+            height: auto;
+        }
+    }
+    
+}
